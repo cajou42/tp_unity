@@ -14,17 +14,15 @@ public class Get_booster : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         count = CountChild(collision.transform,count);
-        Debug.Log(count);
         if (count < 3 || (count > 3 && count < 6 && count != 3) || (count > 6 && count < 10 && count !=3 && count != 6) || count > 10)
         {
-            Debug.Log("alu");
             count = 1;
         }
 
         switch (transform.tag)
         {
             case "booster_3":
-                if (count == 3 && collision.transform.tag == "Gold")
+                if (count == 3 && collision.transform.tag == "Gold" && gameManager.nb_cards + 3 < 15)
                 {
                     Destroy(collision.transform.gameObject);
                     GameObject ROne = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
@@ -38,7 +36,7 @@ public class Get_booster : MonoBehaviour
                 break;
 
             case "booster_6":
-                if (count == 6 && collision.transform.tag == "Gold")
+                if (count == 6 && collision.transform.tag == "Gold" && gameManager.nb_cards + 1 < 15)
                 {
                     Destroy(collision.transform.gameObject);
                     GameObject ROne = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
@@ -50,7 +48,7 @@ public class Get_booster : MonoBehaviour
                 break;
 
             case "booster_10":
-                if (count == 10 && collision.transform.tag == "Gold")
+                if (count == 10 && collision.transform.tag == "Gold" && gameManager.nb_cards + 1 < 15)
                 {
                     Destroy(collision.transform.gameObject);
                     GameObject ROne = Instantiate(VillagerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
