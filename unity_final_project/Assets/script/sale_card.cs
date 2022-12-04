@@ -6,6 +6,7 @@ using TMPro;
 public class sale_card : MonoBehaviour
 {
     public GameManager gameManager;
+    public Material GMaterial;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,6 +15,7 @@ public class sale_card : MonoBehaviour
         {
             collision.transform.tag = "Gold";
             text.text = "gold";
+            collision.GetComponent<SpriteRenderer>().material = GMaterial;
             gameManager.nb_gold++;
         }
     }

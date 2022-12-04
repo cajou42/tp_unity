@@ -17,7 +17,7 @@ public class move_card : MonoBehaviour, IDragHandler
         transform.Translate(vector);
         if (transform.parent != null)
         {
-            transform.parent = null;
+            transform.SetParent(null);
         }
     }
 

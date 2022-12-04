@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public int nb_cards = 0;
     public int nb_gold = 0;
+    public int villager_limits = 2;
     public GameObject[] products;
     public GameObject[] ressources;
     public GameObject[] villager;

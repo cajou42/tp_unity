@@ -14,6 +14,8 @@ public class Build : MonoBehaviour
     float loadCount = 0.0015f;
     private bool verif = true;
     private Vector3 baseLoad = new Vector3();
+    public Material HMaterial;
+    public GameManager game;
 
     private void Start()
     {
@@ -76,6 +78,7 @@ public class Build : MonoBehaviour
 
         var text = collision.GetChild(0).GetComponent<TextMeshPro>();
         text.text = "House";
+        collision.GetComponent<SpriteRenderer>().material = HMaterial;
         for (int i = 0; i < Construction.Length; i++)
         {
             Destroy(Construction[i]);
@@ -85,5 +88,6 @@ public class Build : MonoBehaviour
         loading.SetActive(false);
         loading.transform.localScale = baseLoad;
         loadCount = 0.0015f;
+        game.villager_limits++;
     }
 }
